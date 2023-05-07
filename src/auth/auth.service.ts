@@ -4,14 +4,14 @@ import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  service: HttpService;
-  contructor(httpService: HttpService) {
-    this.service = httpService;
+  private httpService: HttpService;
+  constructor(httpService: HttpService) {
+    this.httpService = httpService;
   }
 
   async login(email: string, password: string) {
     const response = await firstValueFrom(
-      this.service.post('http://localhost:3000/auth/login', {
+      this.httpService.post('http://localhost:3002/auth/login', {
         email,
         password,
       }),
