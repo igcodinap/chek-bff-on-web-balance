@@ -19,8 +19,8 @@ export class AuthController {
     try {
       const { email, password } = req.body;
       console.log(email, password);
-      const reponse = await this.authService.login(email, password);
-      console.log(reponse, 'reponse');
+      const response = await this.authService.login(email, password);
+      console.log(response, 'response');
     } catch (error) {
       throw new HttpException(
         {
