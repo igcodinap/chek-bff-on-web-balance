@@ -4,8 +4,10 @@ import {
   HttpException,
   HttpStatus,
   Request,
+  UseGuards,
 } from '@nestjs/common';
 import { WalletService } from './wallet.service';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('wallet')
 export class WalletController {
@@ -14,12 +16,14 @@ export class WalletController {
     this.walletService = service;
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('balance')
   async getUserBalance(@Request() req) {
     try {
-      const userid = '1';
-      console.log(userid, 'userid')
-      const response = await this.walletService.getBalanceById(userid);
+      console.log(req.user, 'req.user');
+      const { userId } = req.user;
+      const token = req.headers.authorization.split(' ')[1];
+      const response = await this.walletService.getBalanceById(userId, token);
       return response;
     } catch (error) {
       throw new HttpException(
