@@ -10,8 +10,9 @@ export class WalletService {
   }
 
   async getBalanceById(id: string) {
+    console.log(id, 'id');
     const response = await firstValueFrom(
-      this.httpService.get(`http://localhost:3002/wallet/balance/${id}`),
+      this.httpService.get(`http://localhost:3001/wallet/userid/${id}`),
     );
     console.log(response, 'response');
     return response.data;

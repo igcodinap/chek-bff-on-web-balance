@@ -18,6 +18,7 @@ export class WalletController {
   async getUserBalance(@Request() req) {
     try {
       const userid = '1';
+      console.log(userid, 'userid')
       const response = await this.walletService.getBalanceById(userid);
       return response;
     } catch (error) {
