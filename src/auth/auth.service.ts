@@ -20,7 +20,6 @@ export class AuthService {
         password,
       }),
     );
-    console.log(response, 'response');
     return response.data;
   }
 }
