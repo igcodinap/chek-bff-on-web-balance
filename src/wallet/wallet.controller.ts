@@ -20,7 +20,6 @@ export class WalletController {
   @Get('balance')
   async getUserBalance(@Request() req) {
     try {
-      console.log(req.user, 'req.user');
       const { userId } = req.user;
       const token = req.headers.authorization.split(' ')[1];
       const response = await this.walletService.getBalanceById(userId, token);
