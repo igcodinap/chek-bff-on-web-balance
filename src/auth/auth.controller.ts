@@ -20,7 +20,6 @@ export class AuthController {
       const { email, password } = req.body;
       console.log(email, password);
       const response = await this.authService.login(email, password);
-      console.log(response, 'response');
       return { user: response };
     } catch (error) {
       throw new HttpException(
