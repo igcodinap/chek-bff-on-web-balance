@@ -16,11 +16,15 @@ COPY . .
 # Build the NestJS application
 RUN npm run build
 
-# Define the JWT_SECRET variable using ARG
+# Define the ARGS
 ARG JWT_SECRET
+ARG API_AUTH_URL
+ARG API_WALLET_URL
 
-# Set the JWT_SECRET environment variable using the ARG value
+# Set ENVS using ARGS
 ENV JWT_SECRET=${JWT_SECRET}
+ENV API_AUTH_URL=${API_AUTH_URL}
+ENV API_WALLET_URL=${API_WALLET_URL}
 
 # Expose the port the app will run on
 EXPOSE 3000
