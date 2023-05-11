@@ -22,7 +22,6 @@ export class WalletService {
         },
       }),
     );
-    console.log(response, 'response');
     return response.data;
   }
 }
