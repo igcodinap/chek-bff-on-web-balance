@@ -10,7 +10,7 @@ export class AuthService {
   constructor(httpService: HttpService, configService: ConfigService) {
     this.httpService = httpService;
     this.authServiceUrl =
-      configService.get('AUTH_SERVICE_URL') || 'http://localhost:3002';
+      configService.get('API_AUTH_URL') || 'http://localhost:3002';
   }
 
   async login(email: string, password: string) {

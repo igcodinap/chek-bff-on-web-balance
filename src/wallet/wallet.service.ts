@@ -10,7 +10,7 @@ export class WalletService {
 
   constructor(service: HttpService, configService: ConfigService) {
     this.httpService = service;
-    this.walletServiceUrl = configService.get('WALLET_SERVICE_URL') || 'http://localhost:3001';
+    this.walletServiceUrl = configService.get('API_WALLET_URL') || 'http://localhost:3001';
   }
 
   async getBalanceById(id: string, token: string) {
