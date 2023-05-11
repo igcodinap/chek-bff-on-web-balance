@@ -15,7 +15,6 @@ export class WalletService {
   }
 
   async getBalanceById(id: string, token: string) {
-    console.log(id, 'id');
     const response = await firstValueFrom(
       this.httpService.get(`${this.walletServiceUrl}/wallet/userid/${id}`, {
         headers: {
