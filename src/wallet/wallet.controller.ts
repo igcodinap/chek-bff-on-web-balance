@@ -7,7 +7,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { WalletService } from './wallet.service';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('wallet')
 export class WalletController {
