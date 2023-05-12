@@ -28,6 +28,6 @@ describe('JwtStrategy', () => {
 
   it('should return user id when validate is called', async () => {
     const payload = { user: { id: 'userTestID' } };
-    expect(await strategy.validate(payload)).toEqual({ userId: 'testId' });
+    expect(await strategy.validate(payload)).toEqual({ userId: 'userTestID' });
   });
 });
