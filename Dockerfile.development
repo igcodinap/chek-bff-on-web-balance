@@ -1,0 +1,30 @@
+# Use the official Node.js image as the base image
+FROM node:18.15.0
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json (if available) to the working directory
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy the rest of the application source code
+COPY . .
+
+# Define the ARGS
+ARG JWT_SECRET
+ARG API_AUTH_URL
+ARG API_WALLET_URL
+
+# Set ENVS using ARGS
+ENV JWT_SECRET=${JWT_SECRET}
+ENV API_AUTH_URL=${API_AUTH_URL}
+ENV API_WALLET_URL=${API_WALLET_URL}
+
+# Expose the port the app will run on
+EXPOSE 3000
+
+# Start the application in development mode
+CMD ["npm", "run", "start:dev"]

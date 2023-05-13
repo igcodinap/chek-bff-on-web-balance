@@ -1,73 +1,113 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# BFF-on-Web-Balance Service with NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a Backend-for-Frontend (BFF) service that connects with the API Auth and API Wallet services. This BFF service provides an interface for web clients to perform actions like user authentication and retrieving wallet balances. It is built with NestJS.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+- Connects with API Auth for user authentication
+- Connects with API Wallet for retrieving wallet balances
+- Provides an interface for web clients
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Getting Started
 
-## Installation
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+### Prerequisites
+
+- Node.js
+- NPM
+
+### Installation
+
+1. Clone the repo
 ```bash
-$ npm install
+git clone https://github.com/igcodinap/chek-bff-on-web-balance.git
 ```
 
-## Running the app
-
+2. Install NPM packages
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Test
+3. Copy the .env file.
+
+
+4. Update the .env file with your own variables.
+
+### Usage
+
+To run this project in a development mode, use:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run start:dev
 ```
 
-## Support
+To build and run this project in a production mode, use:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+npm run build
+npm run start:prod
+```
 
-## Stay in touch
+## Running the tests
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+You can run the tests using the following command:
 
-## License
+```bash
+npm run test
+```
 
-Nest is [MIT licensed](LICENSE).
+For test coverage, use:
+
+```bash
+npm run test:cov
+```
+
+## Linting
+
+This project uses ESLint and Prettier for linting. You can check for linting issues using:
+
+```bash
+npm run lint
+```
+
+## Formatting
+
+This project uses Prettier for code formatting. You can format your code using:
+
+```bash
+npm run format
+```
+
+## Built With
+
+- Node.js
+- NestJS
+- TypeScript
+
+## Project Structure
+
+```
+├── app.module.ts
+├── auth
+│   ├── auth.controller.spec.ts
+│   ├── auth.controller.ts
+│   ├── auth.module.ts
+│   ├── auth.service.spec.ts
+│   ├── auth.service.ts
+│   ├── jwt-auth.guard.test.ts
+│   ├── jwt-auth.guard.ts
+│   └── jwt.strategy.ts
+├── config
+│   └── config.module.ts
+├── main.ts
+└── wallet
+    ├── wallet.controller.spec.ts
+    ├── wallet.controller.ts
+    ├── wallet.module.ts
+    ├── wallet.service.spec.ts
+    └── wallet.service.ts
+```
+## Authors
+
+- Ignacio Codina - https://github.com/igcodinap
